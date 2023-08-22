@@ -1,0 +1,15 @@
+<!-- src/app/components/dashboard/dashboard.component.html -->
+
+<div class="dashboard-container">
+  <nav class="navbar">
+    <ul class="nav-items">
+      <li><a routerLink="/dashboard/contacts" routerLinkActive="active">Contacts</a></li>
+      <li><a routerLink="/dashboard/sender-ids" routerLinkActive="active">Sender IDs</a></li>
+      <li>Logout</li>
+    </ul>
+  </nav>
+
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

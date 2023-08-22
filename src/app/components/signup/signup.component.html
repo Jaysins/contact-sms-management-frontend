@@ -1,0 +1,39 @@
+<div class="signup-container">
+  <form (ngSubmit)="signup()" #signupForm="ngForm">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" [(ngModel)]="userData.name" required>
+      <div *ngIf="signupForm.submitted && signupForm.controls['name'].errors?.['required']" class="error-message">Name is required.</div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" [(ngModel)]="userData.email" required email>
+      <div *ngIf="signupForm.submitted && signupForm.controls['email'].errors?.['required']" class="error-message">Email is required.</div>
+      <div *ngIf="signupForm.submitted && signupForm.controls['email'].errors?.['email']" class="error-message">Invalid email format.</div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" [(ngModel)]="userData.password" required minlength="8">
+      <div *ngIf="signupForm.submitted && signupForm.controls['password'].errors?.['required']" class="error-message">Password is required.
+      </div>
+      <div *ngIf="signupForm.submitted && signupForm.controls['password'].errors?.['minlength']" class="error-message">Password must be at
+        least 8 characters long.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="tel" id="phoneNumber" name="phoneNumber" [(ngModel)]="userData.phoneNumber" pattern="[0-9]*">
+      <div *ngIf="signupForm.submitted && signupForm.controls['phoneNumber'].errors?.['pattern']">Invalid phone number
+        format.
+      </div>
+    </div>
+
+    <button type="submit">Sign Up</button>
+  </form>
+  <div class="login-link">
+    Already have an account? <a routerLink="/login">Log in</a>
+  </div>
+</div>
