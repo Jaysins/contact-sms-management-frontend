@@ -1,0 +1,63 @@
+/* src/app/components/contacts/contacts.component.css */
+
+.contacts-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.contacts-list {
+  width: 100%;
+  max-width: 800px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.selected-contacts-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 20px;
+}
+
+.selected-contacts-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.selected-contacts-buttons button:first-child {
+  background-color: #007bff;
+  color: white;
+}
+
+.selected-contacts-buttons button:last-child {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.create-contact {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px; /* Add padding to align with navbar */
+  margin-top: 10px; /* Add margin for spacing */
+}
+
+.create-contact button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* ... rest of the styles.css ... */

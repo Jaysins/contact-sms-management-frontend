@@ -1,0 +1,30 @@
+<!-- src/app/components/contacts/contacts.component.html -->
+
+<div class="page-container">
+  <app-navbar></app-navbar>
+  <div class="contacts-container">
+
+    <div class="contacts-list">
+      <h2>Contact List</h2>
+      <ul>
+        <li *ngFor="let contact of contacts">
+          <label>
+            <input type="checkbox" [(ngModel)]="contact.selected">
+            {{ contact.name }} - {{ contact.phoneNumber }}
+          </label>
+        </li>
+      </ul>
+    </div>
+
+    <div class="selected-contacts-buttons" *ngIf="hasSelectedContacts()">
+      <button mat-button color="primary" (click)="addToGroupSelectedContacts()">Add to Group</button>
+      <button mat-button color="accent" (click)="sendMessageSelectedContacts()">Send Message</button>
+    </div>
+
+    <div class="create-contact">
+      <button (click)="openContactFormDialog()" *ngIf="!hasSelectedContacts()">Create Contact</button>
+    </div>
+  </div>
+
+
+</div>
