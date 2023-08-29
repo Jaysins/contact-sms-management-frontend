@@ -1,5 +1,3 @@
-// src/app/components/contact-form-dialog/contact-form-dialog.component.ts
-
 import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {ContactsService} from "../../services/contacts/contacts.service";

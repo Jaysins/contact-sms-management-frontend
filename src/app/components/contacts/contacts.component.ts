@@ -1,5 +1,3 @@
-// src/app/components/contacts/contacts.component.ts
-
 import {Component, OnInit} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 
