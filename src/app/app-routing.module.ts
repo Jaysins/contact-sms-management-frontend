@@ -5,6 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import {DashboardComponent} from "./components/dashboard/dashboard.component";
 import {ContactsComponent} from "./components/contacts/contacts.component";
 import {AuthGuard} from "./services/auth/auth.guard";
+import {SenderIdComponent} from "./components/sender-id/sender-id.component";
 
 const routes: Routes = [
   // Add more routes as needed
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'contacts', component: ContactsComponent, canActivate: [AuthGuard] },
+  { path: 'senderIds', component: SenderIdComponent, canActivate: [AuthGuard] },
 
 ];
 

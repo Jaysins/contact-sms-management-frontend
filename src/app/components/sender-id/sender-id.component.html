@@ -1,0 +1,32 @@
+<!-- src/app/components/contacts/contacts.component.html -->
+
+<div class="contacts-container">
+  <app-navbar></app-navbar>
+
+  <div class="contacts-list">
+    <h2>Sender Id List</h2>
+    <ul class="contact-items">
+      <li *ngFor="let sender of senderIds" class="contact-item">
+        <div class="contact-details">
+          <div class="contact-info">
+            <div class="contact-name">{{ sender.name }}</div>
+          </div>
+          <div class="contact-meta">
+            <div class="contact-group">Group: {{ sender?.group?.name || 'None' }}</div>
+            <div class="contact-created">Created: {{ sender.dateCreated | date }}</div>
+          </div>
+        </div>
+        <div class="contact-actions">
+          <input type="checkbox" [(ngModel)]="sender.selected" class="contact-checkbox">
+        </div>
+        <div class="contact-actions">
+          <button class="delete-button" (click)="deleteSenderId(sender.id)">Delete</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="create-contact">
+    <button (click)="openSenderIdDialog()">Create Contact</button>
+  </div>
+</div>

@@ -16,6 +16,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { NavbarComponent } from './components/shared/templates/navbar/navbar.component';
 import { ContactsFormDialogComponent } from './components/contacts-form-dialog/contacts-form-dialog.component';
+import {ContactsGroupDialogComponent} from "./components/contacts-group-dialog/contacts-group-dialog.component";
+import {MessageDialogComponent} from "./components/message-dialog/message-dialog.component";
+import { SenderIdComponent } from './components/sender-id/sender-id.component';
+import {SenderIdFormDialogComponent} from "./components/sender-id-form-dialog/sender-id-form-dialog.component";
 
 
 @NgModule({
@@ -26,7 +30,11 @@ import { ContactsFormDialogComponent } from './components/contacts-form-dialog/c
     DashboardComponent,
     ContactsComponent,
     NavbarComponent,
-    ContactsFormDialogComponent
+    ContactsFormDialogComponent,
+    ContactsGroupDialogComponent,
+    MessageDialogComponent,
+    SenderIdComponent,
+    SenderIdFormDialogComponent
   ],
   imports: [
     BrowserModule,

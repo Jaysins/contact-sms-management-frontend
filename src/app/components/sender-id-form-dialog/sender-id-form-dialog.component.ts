@@ -7,38 +7,33 @@ import {Route, Router} from "@angular/router";
 import {SnackbarService} from "../../services/helper/snackbar";
 
 import {Group} from "../../models/general.models";
+import {SenderIdService} from "../../services/senderId/senderId.service";
 
 @Component({
   selector: 'app-contact-form-dialog',
-  templateUrl: './contacts-form-dialog.component.html',
-  styleUrls: ['./contacts-form-dialog.component.css']
+  templateUrl: './sender-id-form-dialog.component.html',
+  styleUrls: ['./sender-id-form-dialog.component.css']
 })
-export class ContactsFormDialogComponent {
+export class SenderIdFormDialogComponent {
   name = '';
   groups: Group[] = []; // Replace 'Group' with the appropriate type for your groups
   selectedGroup: string = '';
-  phoneNumber = '';
 
   constructor(
-    private contactsService: ContactsService,
+    private senderIdService: SenderIdService,
     private snackBarService: SnackbarService,
-    public dialogRef: MatDialogRef<ContactsFormDialogComponent>,
+    public dialogRef: MatDialogRef<SenderIdFormDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.groups = data.groups;
   }
 
   onSaveClick(): void {
-    // Handle the saving of contact data and interaction with the backend here
-    // You can call a service to save the contact data to the backend
-    // Display a success message if the request is successful
-    // Close the dialog
-    if (!this.name || !this.phoneNumber) {
-      this.snackBarService.showSnackbar("Name and Phone number required");
+    if (!this.name || !this.selectedGroup) {
+      this.snackBarService.showSnackbar("Name and group required");
       return
     }
-    this.contactsService.createContact({name: this.name, phoneNumber: this.phoneNumber,
-      group: this.selectedGroup}).subscribe(
+    this.senderIdService.createSenderId({name: this.name, group: this.selectedGroup}).subscribe(
       {
         next: response => {
           this.dialogRef.close({success: true});

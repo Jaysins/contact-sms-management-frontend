@@ -1,30 +1,37 @@
 <!-- src/app/components/contacts/contacts.component.html -->
 
-<div class="page-container">
+<div class="contacts-container">
   <app-navbar></app-navbar>
-  <div class="contacts-container">
 
-    <div class="contacts-list">
-      <h2>Contact List</h2>
-      <ul>
-        <li *ngFor="let contact of contacts">
-          <label>
-            <input type="checkbox" [(ngModel)]="contact.selected">
-            {{ contact.name }} - {{ contact.phoneNumber }}
-          </label>
-        </li>
-      </ul>
-    </div>
-
-    <div class="selected-contacts-buttons" *ngIf="hasSelectedContacts()">
-      <button mat-button color="primary" (click)="addToGroupSelectedContacts()">Add to Group</button>
-      <button mat-button color="accent" (click)="sendMessageSelectedContacts()">Send Message</button>
-    </div>
-
-    <div class="create-contact">
-      <button (click)="openContactFormDialog()" *ngIf="!hasSelectedContacts()">Create Contact</button>
-    </div>
+  <div class="contacts-list">
+    <h2>Contact List</h2>
+    <ul class="contact-items">
+      <li *ngFor="let contact of contacts" class="contact-item">
+        <div class="contact-details">
+          <div class="contact-info">
+            <div class="contact-name">{{ contact.name }}</div>
+            <div class="contact-phone">{{ contact.phoneNumber }}</div>
+          </div>
+          <div class="contact-meta">
+            <div class="contact-group">Group: {{ contact?.group?.name || 'None' }}</div>
+            <div class="contact-created">Created: {{ contact.dateCreated | date }}</div>
+          </div>
+        </div>
+        <div class="contact-actions">
+          <input type="checkbox" [(ngModel)]="contact.selected" class="contact-checkbox">
+        </div>
+        <div class="contact-actions">
+          <button class="delete-button" (click)="deleteContact(contact.id)">Delete</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="selected-contacts-buttons" *ngIf="hasSelectedContacts()">
+    <button mat-button color="primary" (click)="openAddToGroupDialog()">Add to Group</button>
+    <button mat-button color="accent" (click)="openMessageDialog()">Send Message</button>
   </div>
 
-
+  <div class="create-contact" *ngIf="!hasSelectedContacts()">
+    <button (click)="openContactFormDialog()">Create Contact</button>
+  </div>
 </div>
